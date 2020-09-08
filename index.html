@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<style>
+  /*  Custom properties/variables  */
+  :root {
+    --main-white: #f0f0f0;
+    --main-red: #be3144;
+    --main-blue: #45567d;
+    --main-gray: #303841;
+  }
+
+  /*  Base reset  */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    box-sizing: border-box; /* Experiment! */
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+
+  /* 1200px / 16px = 75em */
+  @media (max-width: 75em) {
+    html {
+      font-size: 60%;
+    }
+  }
+
+  /* 980px / 16px = 61.25em */
+  @media (max-width: 61.25em) {
+    html {
+      font-size: 58%;
+    }
+  }
+
+  /* 460px / 16px = 28.75em */
+  @media (max-width: 28.75em) {
+    html {
+      font-size: 55%;
+    }
+  }
+
+  /*  Base Styles  */
+
+  body {
+    font-family: sans-serif;
+    font-size: 1.8rem; /* 18px */
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--main-white);
+  }
+
+  h1,
+  h2 {
+    font-family: sans-serif;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  h2 {
+    font-size: 4.2rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--main-white);
+  }
+  img {
+    display: block; /* experiment! */
+    width: 100%;
+  }
+
+  /*  Nav  */
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    background: var(--main-red);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    /* top:0;  not necessary */
+    /* left:0; not necessary */
+  }
+
+  .nav-list,
+  nav ul {
+    display: flex;
+    margin-right: 2rem;
+  }
+
+  @media (max-width: 28.75em) {
+    .nav {
+      justify-content: center;
+    }
+    .nav-list {
+      margin: 0 1rem;
+    }
+  }
+
+  .nav-list a,
+  .nav ul a {
+    display: block;
+    font-size: 2.2rem;
+    padding: 2rem;
+  }
+
+  .nav-list a:hover,
+  .nav ul a:hover {
+    background-color: var(--main-blue);
+  }
+  /*  Nav End*/
+
+  /*   Welcome Section   */
+  .welcome-section {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+    /* width:100%;  not necessary */
+  }
+
+  .welcome-section p {
+    font-size: 3rem;
+    font-weight: 200;
+    font-style: italic;
+    color: var(--main-red);
+  }
+
+  /*   Projects Section   */
+
+  .projects-section {
+    text-align: center;
+    padding: 10rem 2rem;
+    background-color: var(--main-blue);
+  }
+
+  .projects-section-header {
+    width: 640px;
+    margin: 0 auto 6rem auto;
+    border-bottom: 0.2rem solid var(--main-white);
+  }
+
+  @media (max-width: 28.75em) {
+    .projects-section-header {
+      font-size: 4rem;
+    }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 4rem;
+    /* width:100%; */
+    max-width: 1280px;
+    margin: 0 auto;
+    /* margin-bottom: 6rem; */
+  }
+
+  @media (max-width: 30.625em) {
+    .projects-section {
+      padding: 6rem 1rem;
+    }
+    .projects-grid {
+      padding: 6rem 1rem;
+    }
+  }
+
+  .project {
+    background: var(--main-gray);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+  }
+
+  .code {
+    color: var(--main-gray);
+    /* transition:color 0.9s ease-out; */
+  }
+  .project:hover .code {
+    color: #ff7f50;
+    transition: color 0.9s ease-out;
+  }
+
+  .project-image {
+    height: calc(100% - 6.8rem);
+    /* width:100%; */
+    object-fit: cover;
+  }
+
+  .project-title {
+    font-size: 2rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+  }
+
+  .btn-show-all {
+    margin-top: 5rem;
+    font-size: 2rem;
+    background: var(--main-gray);
+    transition: background 0.3s ease-out;
+  }
+
+  .btn-show-all:hover {
+    background: var(--main-red);
+  }
+
+  .btn-show-all:hover > i {
+    transform: translateX(2px);
+  }
+
+  .btn-show-all > i {
+    display: inline-block;
+    margin-left: 10px;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+  }
+
+  .contact-section {
+    height: 100vh;
+    background-color: var(--main-gray);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-white);
+    border-bottom: 0.3rem solid var(--main-red);
+  }
+
+  .contact-section-header p {
+    font-style: italic;
+    text-align: center;
+   
+  }
+
+  .contact-links {
+    margin-top: 4rem;
+  }
+
+  footer {
+    background-color: var(--main-gray);
+    height: 10rem;
+    display: flex;
+    font-weight: 300;
+    /* justify-content:space-evenly; */
+    padding: 2rem;
+  }
+  footer p {
+    margin: 20px;
+  }
+
+  form {
+      margin-top: 30px;
+      position:relative;
+  }
+
+  input {
+      margin-left: 20px;
+      margin-top: 10px;
+      /* position:absolute; */
+      /* left: 100px; */
+  }
+
+  textarea {
+      margin-top: 10px;;
+  }
+
+
+  button {
+      color:#fff;
+      background-color:#be3144;
+      padding:10px;
+      border:none;
+      border-radius: 3px;
+      margin-top:10px;
+      font-size: 1.5rem;
+  }
+  button:hover {
+    background-color: #be3144ca;
+  }
+  button:active {
+    transform:translateY(2px) translateX(1px);
+  }
+
+  .input-class {
+      display:inline-block;
+      width: 60px;
+  }
+  #textarealabel {
+      margin-top: 10px ;
+      display:block;
+  }
+
+  .form-submit {
+      margin-left: 0px;
+  }
+</style>
+
+<html>
+  <head>
+    <title>My Portfolio</title>
+  </head>
+  <body>
+    <!--  Start NAV    -->
+    <header>
+      <nav id="navbar" class="nav">
+        <ul class="nav-list">
+          <li>
+            <a href="#welcome-section">About</a>
+          </li>
+          <li>
+            <a href="#projects">Work</a>
+          </li>
+          <li>
+            <a href="#contacts">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!--  End NAV  -->
+
+    <!-- Start Welcome Section -->
+    <main>
+      <section id="welcome-section" class="welcome-section">
+        <h1>Hi, I am Onat</h1>
+        <p>a web developer</p>
+      </section>
+      <!-- End Welcome Section -->
+
+      <!-- Start Projects Section-->
+      <section id="projects" class="projects-section">
+        <!-- to be cleaned -->
+        <h2 class="projects-section-header">These are some of my projects</h2>
+        <div class="projects-grid">
+          <a class="project" href="">
+            <img class="project-image" src="keto.png" alt="keto image" />
+            <p class="project-title">
+              <span class="code">&lt;</span>
+              <!-- < -->
+              Tribute Page
+              <span class="code">/&gt;</span>
+              <!-- > -->
+            </p>
+          </a>
+          <a class="project" href="">
+            <img class="project-image" src="random.png" alt="random image" />
+            <p class="project-title">
+              <span class="code">&lt;</span>
+              Random Quote Machine
+              <span class="code">/&gt;</span>
+            </p>
+          </a>
+          <a class="project" href="">
+            <img class="project-image" src="calc.png" alt="calculator image" />
+            <p class="project-title">
+              <span class="code">&lt;</span>
+              JavaScript Calculator
+              <span class="code">/&gt;</span>
+            </p>
+          </a>
+          <a class="project" href="">
+            <img class="project-image" src="map.jpg" alt="map image" />
+            <p class="project-title">
+              <span class="code">&lt;</span>
+              Map Data Across the Globe
+              <span class="code">/&gt;</span>
+            </p>
+          </a>
+          <a class="project" href="">
+            <img class="project-image" src="wiki.png" alt="wiki image" />
+            <p class="project-title">
+              <span class="code">&lt;</span>
+              Wikipedia Viewer
+              <span class="code">/&gt;</span>
+            </p>
+          </a>
+          <a class="project" href="">
+            <img
+              class="project-image"
+              src="tic-tac-toe.png"
+              alt="tic tac toe image"
+            />
+            <p class="project-title">
+              <span class="code">&lt;</span>
+              Tic Tac Toe Game
+              <span class="code">/&gt;</span>
+            </p>
+          </a>
+        </div>
+        <a class="btn btn-show-all" href="codepen.html" target="_blank">
+          Show all <i>></i>
+        </a>
+      </section>
+      <!-- End Projects Section-->
+
+      <!-- Start Contacts Sectoin  -->
+      <section id="contacts" class="contact-section">
+        <div class="contact-section-header">
+          <h2>Let's work together...</h2>
+          <!-- <p>How do you take you coffee?</p> -->
+        <!-- </div>
+        <div class="contact-links">
+          <a class="btn contact-details" href="facebook.com" target="_blank"
+            >Facebook
+          </a>
+          <a class="btn contact-details" href="github.com" target="_blank"
+            >Github
+          </a>
+          <a class="btn contact-details" href="twitter.com" target="_blank"
+            >Twitter
+          </a>
+          <a class="btn contact-details" href="mailto:exam.com">Email </a>
+          <a class="btn contact-details" href="tel:555-555-5555">Phone </a>
+        </div> -->
+        <form action="https://formspree.io/xqkyrbrr" method="POST">
+            <label for="name" class='input-class'>Name</label>
+            <input type="text" name="name" id='name' /><br>
+            <label for="_replyto" class='input-class'>Email</label>
+            <input type="email" name="_replyto" id='email'/><br>
+            <label for="textarea" id="textarealabel">How may I help you?</label>
+          <textarea name="body" id='textarea' rows="8" cols="50"></textarea><br>
+          <!-- <input type="submit" value="Submit" class='form-submit'/> -->
+          <button value="Submit" class='form-submit'>Submit</button>
+        </form>
+      </section>
+    </main>
+    <!-- End of Contact-->
+
+    <!-- Start of Footer -->
+    <footer></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+  </body>
+</html>
