@@ -183,7 +183,19 @@
     background: var(--main-gray);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
     border-radius: 2px;
+    position: relative;
   }
+
+  .project-image:hover {
+    filter: blur(6px);
+    webkit-filter: blur(6px); /* Chrome, Safari, Opera */
+    /* height:300%; */
+  }
+
+  .project-image:hover + .badges { 
+    display: inline-block;
+    }
+
 
   .code {
     color: var(--main-gray);
@@ -312,6 +324,26 @@
   .form-submit {
       margin-left: 0px;
   }
+
+  .badges {
+    position:relative;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    display:none;
+  }
+.badge {
+  display:inline-block;
+  height:50px;
+  width:auto;
+  padding:10px;
+
+  /* width:100%; */
+}
+
+
+
 </style>
 
 <html>
@@ -350,64 +382,99 @@
         <!-- to be cleaned -->
         <h2 class="projects-section-header">These are some of my projects</h2>
         <div class="projects-grid">
-          <a class="project" href="">
-            <img class="project-image" src="keto.png" alt="keto image" />
+          <a class="project" href="https://issue-tracker-loku.herokuapp.com/">
+            <img class="project-image" src="images/IssueTracker.png" alt="issue tracker image" />
+            <div class="badges">
+              <img class="badge" src="images/icons8-nodejs-96.png" alt="nodejs image" />
+              <img class="badge" src="images/icons8-mongodb-96.png" alt="mongodb image" />
+              <img class="badge" src="images/handlebars.png" alt="handlebars image" />
+              <img style='height:40px' class="badge" src="images/materialize.png" alt="materialize image" />
+              <img class="badge" src="images/icons8-rest-api-64.png" alt="rest api image" />
+
+            </div>
             <p class="project-title">
               <span class="code">&lt;</span>
               <!-- < -->
-              Tribute Page
+              Issue Tracker
               <span class="code">/&gt;</span>
               <!-- > -->
             </p>
           </a>
-          <a class="project" href="">
-            <img class="project-image" src="random.png" alt="random image" />
+          <a class="project" href="https://metric-imperial-loku.herokuapp.com/">
+            <img class="project-image" src="images/ConverterApp.png" alt="random image" />
+            <div class="badges">
+              <img class="badge" src="images/icons8-nodejs-96.png" alt="nodejs image" />
+              <img class="badge" src="images/icons8-mongodb-96.png" alt="mongodb image" />
+              <img class="badge" src="images/icons8-bootstrap-96.png" alt="bootstrap image" />
+              <img class="badge" src="images/icons8-rest-api-64.png" alt="rest api image" />
+            </div>
             <p class="project-title">
               <span class="code">&lt;</span>
-              Random Quote Machine
+              Metric-Imperial Converter
               <span class="code">/&gt;</span>
             </p>
           </a>
-          <a class="project" href="">
-            <img class="project-image" src="calc.png" alt="calculator image" />
+          <a class="project" href="https://lokutech.github.io/Arabic-Keyboard/">
+            <img class="project-image" src="images/ArabicKeyboard.png" alt="calculator image" />
+            <div class="badges">
+              <img class="badge" src="images/icons8-html-5-96.png" alt="html icon image" />
+              <img class="badge" src="images/icons8-css3-96.png" alt="css image" />
+              <img class="badge" src="images/icons8-javascript-96.png" alt="javascript image" />
+            </div>
             <p class="project-title">
               <span class="code">&lt;</span>
-              JavaScript Calculator
+              Arabic Keyboard
               <span class="code">/&gt;</span>
             </p>
           </a>
-          <a class="project" href="">
-            <img class="project-image" src="map.jpg" alt="map image" />
+          <a class="project" href="https://lokutech.github.io/Calculator/">
+            <img class="project-image" src="images/Calc.png" alt="map image" />
+            <div class="badges">
+              <img class="badge" src="images/icons8-html-5-96.png" alt="html icon image" />
+              <img class="badge" src="images/icons8-css3-96.png" alt="css image" />
+              <img class="badge" src="images/icons8-react-80.png" alt="react image" />
+            </div>
             <p class="project-title">
               <span class="code">&lt;</span>
-              Map Data Across the Globe
+              Calculator
               <span class="code">/&gt;</span>
             </p>
           </a>
-          <a class="project" href="">
-            <img class="project-image" src="wiki.png" alt="wiki image" />
+          <a class="project" href="https://url-shortener-loku.herokuapp.com/">
+            <img class="project-image" src="images/URLShortener.png" alt="wiki image" />
+            <div class="badges">
+              <img class="badge" src="images/icons8-nodejs-96.png" alt="nodejs image" />
+              <img class="badge" src="images/icons8-mongodb-96.png" alt="mongodb image" />
+              <img class="badge" src="images/icons8-bootstrap-96.png" alt="bootstrap image" />
+              <img class="badge" src="images/icons8-rest-api-64.png" alt="rest api image" />
+            </div>
             <p class="project-title">
               <span class="code">&lt;</span>
-              Wikipedia Viewer
+              URL Shortener
               <span class="code">/&gt;</span>
             </p>
           </a>
-          <a class="project" href="">
+          <a class="project" href="https://loku-timestamp-microservice.herokuapp.com/">
             <img
               class="project-image"
-              src="tic-tac-toe.png"
+              src="/images/Timestamp.png"
               alt="tic tac toe image"
             />
+            <div class="badges">
+              <img class="badge" src="images/icons8-nodejs-96.png" alt="nodejs image" />
+              <img class="badge" src="images/icons8-bootstrap-96.png" alt="bootstrap image" />
+              <img class="badge" src="images/icons8-rest-api-64.png" alt="rest api image" />
+            </div>
             <p class="project-title">
               <span class="code">&lt;</span>
-              Tic Tac Toe Game
+              Timestamp Microservice
               <span class="code">/&gt;</span>
             </p>
           </a>
         </div>
-        <a class="btn btn-show-all" href="codepen.html" target="_blank">
+        <!-- <a class="btn btn-show-all" href="codepen.html" target="_blank">
           Show all <i>></i>
-        </a>
+        </a> -->
       </section>
       <!-- End Projects Section-->
 
