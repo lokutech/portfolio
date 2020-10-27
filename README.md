@@ -9,6 +9,6 @@
 
 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">
   <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white"  height="22">
-</a> <br />
+</a> <br /> <br />
 
 This is my personal portfolio
