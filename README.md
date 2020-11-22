@@ -1,5 +1,5 @@
 
-<a href="lokutech.github.io/portfolio/">
+<a href="https://lokutech.github.io/portfolio/">
   <img src="https://img.shields.io/badge/Online_at_Github_Pages-success"  height="22">
 </a> 
 
