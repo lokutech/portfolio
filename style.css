@@ -185,7 +185,7 @@
 
   .project-image:hover {
     filter: blur(6px);
-    webkit-filter: blur(6px); /* Chrome, Safari, Opera */
+    -webkit-filter: blur(6px); /* Chrome, Safari, Opera */
     /* height:300%; */
   }
 
